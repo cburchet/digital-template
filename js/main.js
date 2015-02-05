@@ -28,7 +28,7 @@ var earth;
 	
 	function preload() 
 	{
-		game.load.image('landscape', 'digital-template/assets/landscape.png');
+		game.load.image('landscape', 'assets/landscape.png');
 		game.load.image('ground', 'assets/ground.png');
 		game.load.image('dog', 'assets/dog.png');
 		//get cat image
