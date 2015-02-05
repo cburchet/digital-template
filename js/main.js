@@ -4,7 +4,8 @@ window.onload = function()
 
 	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
 
-    	var earth;
+	var player;
+    var earth;
 	var rocks;
 	var dogs;
 	var cats;
