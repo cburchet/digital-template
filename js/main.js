@@ -1,9 +1,10 @@
+window.onload = function() 
+{
+	"use strict";
 
-window.onload = function() {
+	var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
-
-    var earth;
+    	var earth;
 	var rocks;
 	var dogs;
 	var cats;
