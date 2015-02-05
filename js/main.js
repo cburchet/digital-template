@@ -61,7 +61,7 @@ window.onload = function()
 		
 		createDogs();
 		
-		game.time.events.loop(Phaser.Timer.SECOND * 4, createDogs, this);
+		game.time.events.loop(Phaser.Timer.SECOND * 10, createDogs, this);
 		
 		scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 		
