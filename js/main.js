@@ -16,7 +16,7 @@ var earth;
 		game.load.image('landscape', 'assets/landscape.png');
 		game.load.image('ground', 'assets/ground.png');
 		game.load.image('dog', 'assets/dog.png');
-		//get cat image
+		game.load.image('cat', 'assets/catrunx2.gif');
 		game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 	}
 	 
