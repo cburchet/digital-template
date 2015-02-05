@@ -1,11 +1,12 @@
 
 window.onload = function() {
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
-	var earth;
+var earth;
 	var rocks;
 	var dogs;
+	var cats;
 	var score = 0;
 	var scoreText;
 	var timeText;
@@ -17,6 +18,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		game.load.image('landscape', 'assets/landscape.png');
 		game.load.image('ground', 'assets/ground.png');
 		game.load.image('dog', 'assets/dog.png');
+		game.load.image('cat', 'assets/cat.png');
 		game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 	}
 	 
@@ -43,12 +45,16 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		player.animations.add('left', [0, 1, 2, 3], 10, true);
 		player.animations.add('right', [5, 6, 7, 8], 10, true);
 		
-		
 		cursors = game.input.keyboard.createCursorKeys();
 		
 		dogs = game.add.group();
 	 
 		dogs.enableBody = true;
+		//dogs.scale.setTo(.5, .5);
+		
+		cats = game.add.group();
+	 
+		cats.enableBody = true;
 		
 		createDogs();
 		
@@ -107,15 +113,31 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		//create 12 dogs
 		for (var i = 0; i < 12; i++)
 		{
-			var dog = dogs.create(i * 70, game.rnd.integerInRange(100,200), 'dog');
-			dog.scale.setTo(.5, .5);
-			dog.rotation = game.rnd.integerInRange(1, 5);
-			//  Let gravity do its thing
-			dog.body.gravity.y = game.rnd.integerInRange(10, 25);
-		
-			//  This just gives each star a slightly random bounce value
-			dog.body.bounce.y = 0.7 + Math.random() * 0.2;
-			dog.lifespan = 10000;
+			var chance = game.rnd.integerInRange(1, 4);
+			if (chance <= 3)
+			{
+				var dog = dogs.create(i * 70, game.rnd.integerInRange(100,200), 'dog');
+				dog.scale.setTo(.5, .5);
+				dog.rotation = game.rnd.integerInRange(1, 5);
+				//  Let gravity do its thing
+				dog.body.gravity.y = game.rnd.integerInRange(10, 25);
+		 
+				//  This just gives each star a slightly random bounce value
+				dog.body.bounce.y = 0.7 + Math.random() * 0.2;
+				dog.lifespan = 10000;
+			}
+			else
+			{
+				var cat = cats.create(i * 70, game.rnd.integerInRange(100,200), 'cat');
+				cat.scale.setTo(.5, .5);
+				cat.rotation = game.rnd.integerInRange(1, 5);
+				//  Let gravity do its thing
+				cat.body.gravity.y = game.rnd.integerInRange(10, 25);
+		 
+				//  This just gives each star a slightly random bounce value
+				cat.body.bounce.y = 0.7 + Math.random() * 0.2;
+				cat.lifespan = 10000;
+			}
 		}
 	}
 
@@ -124,6 +146,14 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		// Removes the star from the screen
 		score += 10;
 		dog.kill();
+		scoreText.text = 'Score: ' + score;
+	}
+	
+	function collectCat (player, cat) {
+		
+		// Removes the star from the screen
+		score -= 10;
+		cat.kill();
 		scoreText.text = 'Score: ' + score;
 	}
 
@@ -138,5 +168,6 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		this.game.paused = true;
 		gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: '#000' });
 	}
+
 };
 	 
