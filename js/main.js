@@ -10,6 +10,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 	var timeText;
 	var timer = 120;
 	var gameoverText; 
+	var fx;
 	
 	function preload() 
 	{
@@ -18,6 +19,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		game.load.image('dog', 'assets/dog.png');
 		game.load.image('cat', 'assets/catrunx2.png');
 		game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+		game.load.audio('sfx', 'assets/dog_barking_mono.wav');
 	}
 	 
 	function create() 
@@ -42,6 +44,8 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		
 		player.animations.add('left', [0, 1, 2, 3], 10, true);
 		player.animations.add('right', [5, 6, 7, 8], 10, true);
+		
+		fx = game.add.audio('sfx');
 		
 		cursors = game.input.keyboard.createCursorKeys();
 		
@@ -109,6 +113,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 	function createDogs()
 	{
 		//create 12 dogs
+		fx.play();
 		for (var i = 0; i < 12; i++)
 		{
 			var chance = game.rnd.integerInRange(1, 4);
@@ -167,3 +172,4 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: '#000' });
 	}
 };
+	 
