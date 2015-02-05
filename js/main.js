@@ -12,7 +12,6 @@
 </head>
 <body>
 
-<script type="text/javascript">
 window.onload = function() 
 {
 	"use strict";
@@ -186,7 +185,6 @@ window.onload = function()
 	}
 };
 	 
-</script>
 
 </body>
 </html>
