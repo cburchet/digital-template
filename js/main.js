@@ -1,19 +1,4 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
-	<meta charset="UTF-8" />
-    <title>Phaser - Making your first game</title>
-	<script type="text/javascript" src="phaser.min.js"></script>
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-
-<script type="text/javascript">
-
+window.onload = function() {
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
 
 var earth;
@@ -181,8 +166,4 @@ var earth;
 		this.game.paused = true;
 		gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: '#000' });
 	}
-
-</script>
-
-</body>
-</html>
+};
