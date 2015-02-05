@@ -1,4 +1,6 @@
 window.onload = function() {
+
+"use strict";
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
 
 	var earth;
