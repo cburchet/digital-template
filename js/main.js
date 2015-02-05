@@ -1,9 +1,15 @@
 
 window.onload = function() {
+<<<<<<< HEAD
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 var earth;
+=======
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+    var earth;
+>>>>>>> origin/gh-pages
 	var rocks;
 	var dogs;
 	var cats;
@@ -168,6 +174,9 @@ var earth;
 		this.game.paused = true;
 		gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: '#000' });
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 };
 	 
