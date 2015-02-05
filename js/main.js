@@ -142,7 +142,8 @@ window.onload = function()
 		}
 	}
 
-	function collectDog (player, dog) {
+	function collectDog (player, dog) 
+	{
 		
 		// Removes the star from the screen
 		score += 10;
@@ -150,7 +151,8 @@ window.onload = function()
 		scoreText.text = 'Score: ' + score;
 	}
 	
-	function collectCat (player, cat) {
+	function collectCat (player, cat) 
+	{
 		
 		// Removes the star from the screen
 		score -= 10;
