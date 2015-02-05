@@ -17,7 +17,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, cr
 		game.load.image('landscape', 'assets/landscape.png');
 		game.load.image('ground', 'assets/ground.png');
 		game.load.image('dog', 'assets/dog.png');
-		game.load.image('cat', 'assets/catrunx2.png');
+		//game.load.image('cat', 'assets/catrunx2.png');
 		game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 		game.load.audio('sfx', 'assets/dog_barking_mono.wav');
 	}
